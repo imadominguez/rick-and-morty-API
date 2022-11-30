@@ -1,0 +1,10 @@
+@media (max-width: 1024px) {
+    *{
+        font-size: 1rem;
+    }
+    
+    .card__btn{
+        font-size: 0.1rem;
+    }
+ }
+
