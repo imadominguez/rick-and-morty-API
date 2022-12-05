@@ -1,0 +1,108 @@
+.form__container {
+  background-color: rgba(0, 0, 0, 0.493);
+  border: 2px solid white;
+  border-radius: 20px;
+  color: aliceblue;
+  height: 500px;
+  min-width: 375px;
+  justify-content: center;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 25px rgb(92, 99, 105);
+}
+
+.form__input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #dadce0;
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 25px 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+  color: white;
+}
+.form__input::placeholder {
+  color: transparent;
+}
+.form__username {
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin: 30px 0px;
+}
+/* .d_flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+.form__label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  color: #dadce0;
+  font-size: 16px;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.form__btn {
+  font-weight: 700;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 15px 0px;
+  border-radius: 5px;
+  background-color: lightslategray;
+  letter-spacing: 2px;
+  border: 1px solid whitesmoke;
+  transition: 0.4s;
+  -webkit-text-stroke: 1px rgb(255 255 255 / 20%);
+}
+
+.form__btn:hover {
+  box-shadow: -1px 1px 10px 2px rgba(255, 255, 255, 0.68);
+  color: rgb(202, 202, 202);
+  border-color: rgba(180, 180, 180, 0.59);
+  background-color: rgba(29, 133, 15, 0.49);
+}
+
+.form__input:focus + .form__label {
+  top: -25px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+  /* color: rgb(255, 255, 255); */
+}
+
+/* .form__input:focus {
+  border: 2px solid rgb(255, 255, 255);
+} */
+
+.form__input:not(:placeholder-shown) + .form__label {
+  top: -25px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.warning {
+  color: rgb(255, 0, 0);
+  border-color: rgb(255, 0, 0);
+}
+
+.span {
+  position: absolute;
+  bottom: -32px;
+  right: 0;
+  color: rgb(255, 0, 0);
+}

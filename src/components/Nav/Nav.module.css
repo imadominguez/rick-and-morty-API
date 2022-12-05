@@ -1,0 +1,80 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.509);
+  border: 2px solid rgb(255, 255, 255, 0.5);
+  border-radius: 20px;
+  width: 100%;
+  padding: 15px 0;
+  box-shadow: -1px 1px 10px 2px rgb(92, 99, 105);
+}
+.nav .button {
+  padding: 5px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: rgb(79, 90, 100);
+  margin: 0 20px;
+  text-decoration: none;
+  color: rgb(201, 198, 198);
+  border: 1px solid rgb(255, 255, 255, 0.5);
+  font-size: 0.9em;
+  -webkit-text-stroke: 0.5px rgba(255, 0, 0, 0.503);
+}
+
+.nav .button:hover {
+  box-shadow: -1px 1px 10px 2px rgb(92, 99, 105);
+  color: rgba(255, 255, 255, 0.76);
+  border-color: rgba(255, 255, 255, 0.733);
+  background-color: hsla(0, 69%, 39%, 0.5);
+}
+.nav__link {
+  padding: 5px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: rgb(79, 90, 100);
+  margin: 0 20px;
+  text-decoration: none;
+  color: rgb(201, 198, 198);
+  border: 1px solid rgb(255, 255, 255, 0.5);
+  font-size: 0.9em;
+  -webkit-text-stroke: 0.5px hsla(75, 74%, 52%, 0.505);
+}
+
+.nav__link:hover {
+  box-shadow: -1px 1px 10px 2px rgb(92, 99, 105);
+  color: rgba(255, 255, 255, 0.76);
+  border-color: rgba(255, 255, 255, 0.733);
+  background-color: hsla(75, 74%, 52%, 0.505);
+}
+
+@media only screen and (max-width: 425px) {
+  .nav {
+    flex-direction: column;
+  }
+  .nav__navlinks {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-around;
+  }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+  .nav {
+    width: 90%;
+  }
+  .nav__navlinks {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .nav__navlinks {
+    flex-direction: row;
+  }
+}
