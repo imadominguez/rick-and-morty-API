@@ -69,7 +69,6 @@ export default function Form(props) {
       />
       <div className={`${StyleForm.d_flex} ${StyleForm.form__username}`}>
         <input
-          autoComplete="off"
           name="username"
           className={`${StyleForm.form__input} ${
             errores.username && StyleForm.warning
