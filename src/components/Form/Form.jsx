@@ -14,7 +14,6 @@ export default function Form(props) {
   });
 
   const handleInputChange = (e) => {
-    console.log(e);
     if (e.target.value) {
       setUserData({
         ...userData,
@@ -26,7 +25,6 @@ export default function Form(props) {
           [e.target.name]: e.target.value,
         }),
       });
-      console.log(errores);
     } else {
       setUserData({
         ...userData,

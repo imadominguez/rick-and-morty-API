@@ -3,8 +3,7 @@ import { ADD_FAVORITES, DELETE_FAVORITES } from "./actions";
 const initialState = {
   myFavorites: [],
 };
-
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAVORITES:
       return {
@@ -20,3 +19,5 @@ export const reducer = (state = initialState, action) => {
       return { ...state };
   }
 };
+
+export default reducer;

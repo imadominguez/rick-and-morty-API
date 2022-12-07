@@ -4,6 +4,7 @@ import Nav from "./components/Nav/Nav";
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Form from "./components/Form/Form.jsx";
+import Favorites from "./components/Favorites/Favorites";
 import styles from "./style/App.module.css";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
@@ -51,27 +52,26 @@ function App() {
   const search = useLocation();
 
   return (
-    <>
-      <div className={styles.App}>
-        {search.pathname === "/" ? null : (
-          <Nav onSearch={onSearch} logout={logOut} />
-        )}
+    <div className={styles.App}>
+      {search.pathname === "/" ? null : (
+        <Nav onSearch={onSearch} logout={logOut} />
+      )}
 
-        {existe ? <h4 style={{ color: "white" }}>¡¡¡ YA EXISTE !!!</h4> : false}
-        <Routes>
-          <Route path="/" element={<Form login={login} />} />
+      {existe ? <h4 style={{ color: "white" }}>¡¡¡ YA EXISTE !!!</h4> : false}
+      <Routes>
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/" element={<Form login={login} />} />
 
-          <Route
-            path="/home"
-            element={<Cards characters={characters} onClose={onClose} />}
-          />
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
 
-          <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About />} />
 
-          <Route path="/detail/:id" element={<Detail />} />
-        </Routes>
-      </div>
-    </>
+        <Route path="/detail/:id" element={<Detail />} />
+      </Routes>
+    </div>
   );
 }
 

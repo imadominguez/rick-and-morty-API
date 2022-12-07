@@ -10,6 +10,7 @@ export default function Cards(props) {
       {Array.isArray(characters) ? (
         characters.map((e, i) => (
           <Card
+            e={e}
             id={e.id}
             key={i}
             name={e.name}

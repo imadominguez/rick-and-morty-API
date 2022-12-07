@@ -15,6 +15,9 @@ export default function Nav(props) {
         <NavLink className={Style.nav__link} to="/about">
           About
         </NavLink>
+        <NavLink className={Style.nav__link} to="/favorites">
+          Favorites
+        </NavLink>
       </div>
       <div>
         <SearchBar onsearch={props.onSearch} />
