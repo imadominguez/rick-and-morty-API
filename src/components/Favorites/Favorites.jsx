@@ -1,10 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
+import Card from "../Card/Card";
 function Favorites({ myFavorites }) {
+  console.log(myFavorites);
   return (
-    <div style={{ height: "90vh" }}>
+    <div>
       {myFavorites.map((e) => (
-        <div>{e}</div>
+        <Card
+          e={e}
+          id={e.id}
+          key={e.id}
+          name={e.name}
+          species={e.species}
+          gender={e.gender}
+          image={e.image}
+        />
       ))}
     </div>
   );

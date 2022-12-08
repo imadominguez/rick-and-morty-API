@@ -10,10 +10,10 @@ function Card(props) {
   const handleFavorite = () => {
     if (isFav) {
       setisFav(false);
-      deleteFavorites(id);
+      props.deleteFavorites(id);
     } else {
       setisFav(true);
-      addFavorites(id);
+      props.addFavorites(props.e);
     }
   };
 
@@ -25,36 +25,29 @@ function Card(props) {
   //   });
   // });
   return (
-    <>
+    <div className={styles.card}>
       {isFav ? (
         <button onClick={handleFavorite}>❤️</button>
       ) : (
         <button onClick={handleFavorite}>🤍</button>
       )}
-
-      <div className={styles.card}>
-        <button
-          className={styles.card__btn}
-          onClick={() => props.onClose(props.id)}
-        >
-          Cerrar card
-        </button>
-        <div className={styles.card__container__img}>
-          <img
-            src={props.image}
-            alt={props.name}
-            className={styles.card__img}
-          />
-          <h2 className={styles.card__name}>{props.name}</h2>
-        </div>
-        <div className={styles.d__flex}>
-          <h2 className={styles.h2}>{props.species}</h2>
-          <h2 className={styles.h2}>{props.gender}</h2>
-        </div>
-
-        <Link to={`/detail/${props.id}`}>Detalles</Link>
+      <button
+        className={styles.card__btn}
+        onClick={() => props.onClose(props.id)}
+      >
+        Cerrar card
+      </button>
+      <div className={styles.card__container__img}>
+        <img src={props.image} alt={props.name} className={styles.card__img} />
+        <h2 className={styles.card__name}>{props.name}</h2>
       </div>
-    </>
+      <div className={styles.d__flex}>
+        <h2 className={styles.h2}>{props.species}</h2>
+        <h2 className={styles.h2}>{props.gender}</h2>
+      </div>
+
+      <Link to={`/detail/${props.id}`}>Detalles</Link>
+    </div>
   );
 }
 
@@ -64,14 +57,16 @@ export const mapStateToProps = (state) => {
   };
 };
 
+// eslint-disable-next-line
+// eslint-disable-next-line
 export const mapDispatchToProps = (dispatch) => {
-  // eslint-disable-next-line
-  addFavorites: (id) => {
-    return dispatch(addFavorites(id));
-  };
-  // eslint-disable-next-line
-  deleteFavorites: (id) => {
-    return dispatch(deleteFavorites(id));
+  return {
+    addFavorites: (id) => {
+      return dispatch(addFavorites(id));
+    },
+    deleteFavorites: (id) => {
+      return dispatch(deleteFavorites(id));
+    },
   };
 };
 

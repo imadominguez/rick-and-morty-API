@@ -2,6 +2,7 @@ import { ADD_FAVORITES, DELETE_FAVORITES } from "./actions";
 
 const initialState = {
   myFavorites: [],
+  allCharacters: [],
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
