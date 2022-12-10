@@ -10,29 +10,32 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites: [...state.myFavorites, action.payload],
+        allCharacters: [...state.allCharacters, action.payload],
       };
     case FILTER:
-      return {
-        ...state.allCharacters,
-        myFavorites: state.allCharacters.filter(
-          (e) => e.genere == action.payload
-        ),
-      };
+      return action.payload === "all"
+        ? { ...state, myFavorites: [...state.allCharacters] }
+        : {
+            ...state,
+            myFavorites: [...state.allCharacters].filter(
+              (e) => e.gender === action.payload
+            ),
+          };
     case ORDER:
+      console.log("estoy en order");
       return {
-        ...state.allCharacters,
-        myFavorites: state.allCharacters.sort(function (a, b) {
-          if (action.payload === "Ascendente") {
-            return a - b;
-          } else if (action.payload === "Descendente") {
-            return b - a;
-          }
+        ...state,
+        myFavorites: [...state.myFavorites].sort((a, b) => {
+          return action.payload === "Ascendente" ? a.id - b.id : b.id - a;
         }),
       };
     case DELETE_FAVORITES:
       return {
         ...state,
-        myfavorites: state.myFavorites.filter((e) => e.id !== action.payload),
+        myFavorites: state.myFavorites.filter((e) => e.id !== action.payload),
+        allCharacters: state.allCharacters.filter(
+          (e) => e.id !== action.payload
+        ),
       };
     default:
       return { ...state };

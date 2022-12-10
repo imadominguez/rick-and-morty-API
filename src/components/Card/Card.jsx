@@ -2,28 +2,35 @@ import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFavorites, deleteFavorites } from "../../redux/actions";
-import { useState } from "react";
-// import { useEffect } from "react";
-function Card(props) {
+import { useState, useEffect } from "react";
+
+function Card({
+  character,
+  addFavorites,
+  deleteFavorites,
+  onClose,
+  myFavorites,
+}) {
   const [isFav, setisFav] = useState(false);
-  const { id } = props;
+
+  // eslint-disable-next-line
+  useEffect(() => {
+    myFavorites.forEach((fav) => {
+      if (fav.id === character.id) {
+        setisFav(true);
+      }
+    });
+  }, [myFavorites]);
   const handleFavorite = () => {
     if (isFav) {
       setisFav(false);
-      props.deleteFavorites(id);
+      deleteFavorites(character.id);
     } else {
       setisFav(true);
-      props.addFavorites(props.e);
+      addFavorites(character);
     }
   };
 
-  // useEffect(() => {
-  //   props.myFavorites.forEach((fav) => {
-  //     if (fav.id === props.id) {
-  //       setisFav(true);
-  //     }
-  //   });
-  // });
   return (
     <div className={styles.card}>
       {isFav ? (
@@ -31,22 +38,29 @@ function Card(props) {
       ) : (
         <button onClick={handleFavorite}>🤍</button>
       )}
-      <button
-        className={styles.card__btn}
-        onClick={() => props.onClose(props.id)}
-      >
-        Cerrar card
-      </button>
+      {onClose && (
+        <button
+          className={styles.card__btn}
+          onClick={() => onClose(character.id)}
+        >
+          Cerrar card
+        </button>
+      )}
+
       <div className={styles.card__container__img}>
-        <img src={props.image} alt={props.name} className={styles.card__img} />
-        <h2 className={styles.card__name}>{props.name}</h2>
+        <img
+          src={character.image}
+          alt={character.name}
+          className={styles.card__img}
+        />
+        <h2 className={styles.card__name}>{character.name}</h2>
       </div>
       <div className={styles.d__flex}>
-        <h2 className={styles.h2}>{props.species}</h2>
-        <h2 className={styles.h2}>{props.gender}</h2>
+        <h2 className={styles.h2}>{character.species}</h2>
+        <h2 className={styles.h2}>{character.gender}</h2>
       </div>
 
-      <Link to={`/detail/${props.id}`}>Detalles</Link>
+      <Link to={`/detail/${character.id}`}>Detalles</Link>
     </div>
   );
 }
@@ -61,8 +75,8 @@ export const mapStateToProps = (state) => {
 // eslint-disable-next-line
 export const mapDispatchToProps = (dispatch) => {
   return {
-    addFavorites: (id) => {
-      return dispatch(addFavorites(id));
+    addFavorites: (personaje) => {
+      return dispatch(addFavorites(personaje));
     },
     deleteFavorites: (id) => {
       return dispatch(deleteFavorites(id));
@@ -70,4 +84,4 @@ export const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
