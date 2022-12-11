@@ -1,8 +1,9 @@
 import styles from "./Card.module.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFavorites, deleteFavorites } from "../../redux/actions";
 import { useState, useEffect } from "react";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
 function Card({
   character,
@@ -34,9 +35,13 @@ function Card({
   return (
     <div className={styles.card}>
       {isFav ? (
-        <button onClick={handleFavorite}>❤️</button>
+        <button className={styles.btn__fav} onClick={handleFavorite}>
+          <MdFavorite style={{ color: "red" }} />
+        </button>
       ) : (
-        <button onClick={handleFavorite}>🤍</button>
+        <button className={styles.btn__fav} onClick={handleFavorite}>
+          <MdFavoriteBorder style={{ color: "white" }} />
+        </button>
       )}
       {onClose && (
         <button
@@ -52,6 +57,7 @@ function Card({
           src={character.image}
           alt={character.name}
           className={styles.card__img}
+          onDoubleClick={handleFavorite}
         />
         <h2 className={styles.card__name}>{character.name}</h2>
       </div>
@@ -60,7 +66,9 @@ function Card({
         <h2 className={styles.h2}>{character.gender}</h2>
       </div>
 
-      <Link to={`/detail/${character.id}`}>Detalles</Link>
+      <NavLink className={styles.btn__detail} to={`/detail/${character.id}`}>
+        Detalles
+      </NavLink>
     </div>
   );
 }

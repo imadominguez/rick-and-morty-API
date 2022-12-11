@@ -28,7 +28,7 @@
   margin-bottom: 1px;
   text-transform: uppercase;
   cursor: pointer;
-
+  font-weight: 500;
   /* border-radius: 5px; */
   background-color: lightslategray;
 }
@@ -39,6 +39,26 @@
   background-color: rgb(145, 49, 49);
 }
 
+.btn__fav {
+  width: 100%;
+  cursor: pointer;
+  background: none;
+  padding: 5px 20px;
+}
+
+.btn__detail {
+  text-decoration: none;
+  color: rgb(214, 213, 213);
+
+  font-weight: 600;
+  background-color: lightslategray;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255, 0.5);
+}
+.btn__detail:hover {
+  background-color: rgb(102, 108, 112);
+}
 .card__span {
   font-weight: 500;
 }

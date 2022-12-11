@@ -14,12 +14,32 @@
   color: rgb(201, 198, 198);
   border: 1px solid rgb(255, 255, 255, 0.5);
   font-size: 0.9em;
+  font-weight: 700;
 }
 .search__btn:hover {
   box-shadow: -1px 1px 10px 2px rgb(92, 99, 105);
   color: rgba(255, 255, 255, 0.76);
   border-color: rgba(255, 255, 255, 0.733);
   background-color: hsla(75, 74%, 52%, 0.505);
+}
+
+.search__aleatorio {
+  padding: 5px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: rgb(79, 90, 100);
+  margin: 0 20px;
+  text-decoration: none;
+  color: rgb(218, 218, 218);
+  border: 1px solid rgb(255, 255, 255, 0.5);
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.search__aleatorio:hover {
+  background-color: rgb(102, 108, 112);
 }
 
 @media only screen and (max-width: 425px) {

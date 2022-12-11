@@ -32,7 +32,9 @@ export default function SearchBar(props) {
 
   return (
     <div className={styles.search__container}>
-      <button onClick={numAleatorio}>Aleatorio</button>
+      <button className={styles.search__aleatorio} onClick={numAleatorio}>
+        Aleatorio
+      </button>
       <input
         placeholder="Ingresar ID"
         className={styles.input}

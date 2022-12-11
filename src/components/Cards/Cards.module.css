@@ -1,12 +1,22 @@
 .d_grid {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(3, minmax(300px, 300px));
+  grid-template-columns: repeat(4, minmax(300px, 300px));
+  grid-template-rows: repeat(auto-fill, 460px);
   justify-items: center;
   padding-top: 37px;
   row-gap: 20px;
   column-gap: 40px;
   color: white;
+}
+.select {
+  padding: 10px 0;
+  margin: 30px 20px;
+  cursor: pointer;
+}
+
+.option {
+  padding: 5px 3px;
 }
 @media (max-width: 1024px) {
   .d_grid {

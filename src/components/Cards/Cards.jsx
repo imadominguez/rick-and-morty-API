@@ -8,12 +8,12 @@ export default function Cards(props) {
   return (
     <>
       <div>
-        <select onChange={2}>
+        <select className={styles.select} onChange={2}>
           <option hidden>Ordenar</option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
         </select>
-        <select onChange={2}>
+        <select className={styles.select} onChange={2}>
           <option hidden>Filtrar</option>
           <option value="all">Todos</option>
           <option value="Male">Male</option>
