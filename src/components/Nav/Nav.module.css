@@ -10,6 +10,10 @@
   box-shadow: -1px 1px 10px 2px rgb(92, 99, 105);
   font-weight: 700;
 }
+
+.nav__navlinks {
+  display: flex;
+}
 .nav .button {
   padding: 5px 20px;
   text-transform: uppercase;
@@ -96,8 +100,9 @@
   }
 }
 
-@media (min-width: 769px) and (min-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .nav__navlinks {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
   }
 }

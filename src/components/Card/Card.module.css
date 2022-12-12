@@ -7,6 +7,8 @@
   overflow: hidden;
   box-shadow: -1px 1px 10px 2px rgb(92, 99, 105);
   color: white;
+  position: relative;
+  height: 530px;
 }
 .card__container__img {
   position: relative;
@@ -47,9 +49,13 @@
 }
 
 .btn__detail {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
   text-decoration: none;
   color: rgb(214, 213, 213);
-
   font-weight: 600;
   background-color: lightslategray;
   padding: 5px 20px;
@@ -69,6 +75,8 @@
 
 .d__flex {
   display: flex;
-  justify-content: center;
-  padding: 15px 0px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  height: 100px;
 }

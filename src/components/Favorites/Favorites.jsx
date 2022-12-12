@@ -2,11 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { orderCards, filterGender } from "../../redux/actions";
 import Card from "../Card/Card";
+import style from "./Favorites.module.css";
 function Favorites(props) {
   const orderList = (e) => {
-    console.log("estoy en orderList");
-    console.log(e.target.value);
-
     props.orderCards(e.target.value);
   };
 
@@ -17,12 +15,12 @@ function Favorites(props) {
   return (
     <div>
       <div>
-        <select onChange={orderList}>
+        <select className={style.select} onChange={orderList}>
           <option hidden>Ordenar</option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
         </select>
-        <select onChange={filterGender}>
+        <select className={style.select} onChange={filterGender}>
           <option hidden>Filtrar</option>
           <option value="all">Todos</option>
           <option value="Male">Male</option>
@@ -31,9 +29,11 @@ function Favorites(props) {
           <option value="unknown">unknown</option>
         </select>
       </div>
-      {props.myFavorites.map((e) => (
-        <Card character={e} key={e.id} />
-      ))}
+      <div className={style.fav__grid}>
+        {props.myFavorites.map((e) => (
+          <Card character={e} key={e.id} />
+        ))}
+      </div>
     </div>
   );
 }

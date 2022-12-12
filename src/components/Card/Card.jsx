@@ -62,13 +62,12 @@ function Card({
         <h2 className={styles.card__name}>{character.name}</h2>
       </div>
       <div className={styles.d__flex}>
-        <h2 className={styles.h2}>{character.species}</h2>
-        <h2 className={styles.h2}>{character.gender}</h2>
+        <h2 className={styles.h2}>Species: {character.species}</h2>
+        <h2 className={styles.h2}>Gender: {character.gender}</h2>
+        <NavLink className={styles.btn__detail} to={`/detail/${character.id}`}>
+          Detalles
+        </NavLink>
       </div>
-
-      <NavLink className={styles.btn__detail} to={`/detail/${character.id}`}>
-        Detalles
-      </NavLink>
     </div>
   );
 }

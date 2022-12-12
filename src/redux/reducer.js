@@ -22,11 +22,11 @@ const reducer = (state = initialState, action) => {
             ),
           };
     case ORDER:
-      console.log("estoy en order");
       return {
         ...state,
         myFavorites: [...state.myFavorites].sort((a, b) => {
-          return action.payload === "Ascendente" ? a.id - b.id : b.id - a;
+          console.log(state.myFavorites);
+          return action.payload === "Ascendente" ? a.id - b.id : b.id - a.id;
         }),
       };
     case DELETE_FAVORITES:

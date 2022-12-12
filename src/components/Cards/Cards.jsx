@@ -7,7 +7,7 @@ export default function Cards(props) {
 
   return (
     <>
-      <div>
+      {/* <div>
         <select className={styles.select} onChange={2}>
           <option hidden>Ordenar</option>
           <option value="Ascendente">Ascendente</option>
@@ -21,7 +21,7 @@ export default function Cards(props) {
           <option value="Genderless">Genderless</option>
           <option value="unknown">unknown</option>
         </select>
-      </div>
+      </div> */}
       <div className={styles.d_grid}>
         {Array.isArray(characters) ? (
           characters.map((e, i) => (
