@@ -12,21 +12,24 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [existe, setExiste] = useState(false);
   const [access, setAcces] = useState(false);
-  let username = "imanol.desarrolloweb@gmail.com";
-  let password = "Eqkcbu8f!";
   const navigate = useNavigate();
 
   const login = (userData) => {
-    if (username === userData.username && password === userData.password) {
-      setAcces(true);
-      navigate("/home");
-    }
+    const user = { username: userData.username, password: userData.password };
+
+    window.localStorage.setItem("username", JSON.stringify(user));
+
+    // if (username === userData.username && password === userData.password) {
+    setAcces(true);
+    navigate("/home");
+
+    // }
   };
   const logOut = () => {
     setAcces(false);
   };
   useEffect(() => {
-    !access && navigate("/");
+    if (!access) return navigate("/");
   }, [access]);
   const onSearch = (id) => {
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
@@ -57,7 +60,12 @@ function App() {
         <Nav onSearch={onSearch} logout={logOut} />
       )}
 
-      {existe ? <h4 style={{ color: "white" }}>¡¡¡ YA EXISTE !!!</h4> : false}
+      {existe && search.pathname === "/home" ? (
+        <h4 style={{ color: "white" }}>¡¡¡ YA EXISTE !!!</h4>
+      ) : (
+        false
+      )}
+
       <Routes>
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/" element={<Form login={login} />} />
