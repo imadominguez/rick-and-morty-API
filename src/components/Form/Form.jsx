@@ -41,7 +41,6 @@ export default function Form(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (errores.username === "" && errores.password === "") {
-      console.log("datos completados");
       setUserData({
         username: "",
         password: "",

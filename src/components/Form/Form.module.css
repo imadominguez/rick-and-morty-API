@@ -4,7 +4,7 @@
   border-radius: 20px;
   color: aliceblue;
   height: 500px;
-  min-width: 375px;
+  min-width: 320px;
   justify-content: center;
   margin-top: 200px;
   display: flex;
@@ -37,11 +37,7 @@
   width: 90%;
   margin: 30px 0px;
 }
-/* .d_flex{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+
 .form__label {
   position: absolute;
   top: 15px;
@@ -87,10 +83,6 @@
   /* color: rgb(255, 255, 255); */
 }
 
-/* .form__input:focus {
-  border: 2px solid rgb(255, 255, 255);
-} */
-
 .form__input:not(:placeholder-shown) + .form__label {
   top: -25px;
   left: 3px;
@@ -109,4 +101,11 @@
   bottom: -32px;
   right: 0;
   color: rgb(255, 0, 0);
+}
+
+@media (max-width: 630px) {
+  .form__container {
+    margin-top: 50px;
+    width: 90%;
+  }
 }
