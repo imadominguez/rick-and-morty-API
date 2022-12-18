@@ -2,7 +2,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(4, minmax(300px, 300px));
-  grid-template-rows: repeat(auto-fill, 530px);
+  /* grid-template-rows: repeat(auto-fill, 530px); */
   justify-items: center;
   padding-top: 37px;
   row-gap: 20px;
@@ -28,7 +28,7 @@
 @media (max-width: 1024px) {
   .d_grid {
     grid-template-columns: repeat(3, minmax(280px, 300px));
-    grid-template-rows: 460px;
+    /* grid-template-rows: 460px; */
     width: 80%;
   }
 }
